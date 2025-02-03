@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../service/user.service';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {AuthenticationDto} from '../../../data-types/AuthenticationDto';
+import {HttpErrorResponse} from '@angular/common/http';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class LoginFormComponent {
   hidePassword = true;
   showPasswordErrorMessage = false;
   loginUserDataFormGroup!: FormGroup;
+  errorMessage = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -43,14 +45,20 @@ export class LoginFormComponent {
       password: formValues.password!,
     };
 
+    console.log(loginData);
     if (!this.loginUserDataFormGroup.invalid) {
       this.userService.login(loginData).subscribe({
         next: (result: any) => {
-          if (result['token'] == '') this.showPasswordErrorMessage = true;
-          else {
-            this.cookieService.set('Token', result['token']);
-          }
+          this.cookieService.set('Token', result['jwt']);
         },
+        error: (errorResponse: HttpErrorResponse) => {
+          if (errorResponse.error && errorResponse.error.errorMessage) {
+            this.errorMessage = errorResponse.error.errorMessage;
+          } else {
+            this.errorMessage = 'An unexpected error occurred. Please try again later.';
+          }
+          this.showPasswordErrorMessage = true;
+        }
       });
     }
   }

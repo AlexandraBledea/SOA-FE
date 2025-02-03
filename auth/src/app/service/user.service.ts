@@ -11,7 +11,7 @@ import {RegisterUserDto} from '../data-types/RegisterUserDto';
 export class UserService {
 
   private baseUrl = 'http://localhost:8080/authentication';
-  private loginUrl= this.baseUrl + '/authenticate';
+  private loginUrl= this.baseUrl + '/login';
   private registerUdl = this.baseUrl + '/register';
 
   constructor(private httpClient: HttpClient) {}
