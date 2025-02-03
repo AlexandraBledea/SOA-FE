@@ -5,7 +5,7 @@ const AuthModuleFederationConfigPlugin = withModuleFederationPlugin({
   name: 'auth',
 
   exposes: {
-    './Component': './src/app/app.module.ts',
+    './LandingModule': './src/app/landing/landing.module.ts',
   },
 
   shared: {
