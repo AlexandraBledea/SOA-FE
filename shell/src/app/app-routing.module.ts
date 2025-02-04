@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import {MainComponent} from './main/main.component';
 import {AuthguardService} from './authguards/authguard.service';
+import {AuthguardLoginService} from './authguards/authguard-login.service';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
         .catch((err) => {
           console.error('Error loading LandingModule:', err);
         }),
+    canActivate: [AuthguardLoginService],
   },
   {
     path: 'main',  // Use a different path for the main layout
@@ -34,9 +36,9 @@ const routes: Routes = [
             .catch((err: any) => {
               console.error('Error loading remote module:', err);
             }),
-        canActivate: [AuthguardService],
       }
     ],
+    canActivate: [AuthguardService]
   },
   {
     path: '**',

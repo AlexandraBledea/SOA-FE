@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import { CanActivate, Router, UrlTree } from '@angular/router';
-import { JwtHelperService } from "@auth0/angular-jwt";
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
-
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthguardService implements CanActivate {
+export class AuthguardLoginService implements CanActivate {
   constructor(
     private cookieService: CookieService,
     private router: Router,
-    private jwtHelper: JwtHelperService
   ) {}
 
   canActivate():
@@ -21,12 +18,11 @@ export class AuthguardService implements CanActivate {
     | boolean
     | UrlTree {
     const token = this.cookieService.get('Token');
-    if (token && !this.jwtHelper.isTokenExpired(token)) {
+    if (!token) {
       return true;
     } else {
-      this.router.navigate(['/login']);
+        this.router.navigate(['/main']);
     }
-
     return false;
   }
 }

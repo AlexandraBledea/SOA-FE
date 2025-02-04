@@ -49,7 +49,7 @@
       <div class="password-container">
         <input
           id="password1"
-          [type]="hidePassword1 ? 'text' : 'password'"
+          [type]="hidePassword1 ? 'password' : 'text'"
           placeholder="Enter your password"
           formControlName="password1"
           (click)="resetWarnings()"
@@ -71,7 +71,7 @@
       <div class="password-container">
         <input
           id="password2"
-          [type]="hidePassword2 ? 'text' : 'password'"
+          [type]="hidePassword2 ? 'password' : 'text'"
           placeholder="Enter again your password"
           formControlName="password2"
           (click)="resetWarnings()"

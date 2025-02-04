@@ -5,6 +5,7 @@ import {UserService} from '../../../service/user.service';
 import {Router} from '@angular/router';
 import {RegisterUserDto} from '../../../data-types/RegisterUserDto';
 import {HttpErrorResponse} from '@angular/common/http';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-register-form',
@@ -28,6 +29,7 @@ export class RegisterFormComponent {
     private userService: UserService,
     private formBuilder: FormBuilder,
     private router: Router,
+    private cookieService: CookieService,
   ) {
     this.registerFormGroup = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -69,6 +71,8 @@ export class RegisterFormComponent {
 
     this.userService.register(registerData).subscribe({
       next: (result: any) => {
+        this.cookieService.set('Token', result['jwt']);
+        this.router.navigate(['/main']);
       },
       error: (errorResponse: HttpErrorResponse) => {
         if (errorResponse.error && errorResponse.error.errorMessage) {
