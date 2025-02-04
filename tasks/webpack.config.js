@@ -5,7 +5,7 @@ const TasksModuleFederationConfigPlugin = withModuleFederationPlugin({
   name: 'tasks',
 
   exposes: {
-    './Component': './src/app/app.module.ts',
+    './TasksModule': './src/app/tasks/tasks.module.ts',
   },
 
   shared: {

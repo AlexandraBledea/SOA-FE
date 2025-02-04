@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/module-federation';
+import {MainComponent} from './main/main.component';
+import {AuthguardService} from './authguards/authguard.service';
 
 const routes: Routes = [
   {
@@ -15,6 +17,26 @@ const routes: Routes = [
         .catch((err) => {
           console.error('Error loading LandingModule:', err);
         }),
+  },
+  {
+    path: 'main',  // Use a different path for the main layout
+    component: MainComponent,  // Main layout as the parent component
+    children: [
+      {
+        path: 'tasks',
+        loadChildren: () =>
+          loadRemoteModule({
+            type: 'module',
+            remoteEntry: 'http://localhost:4202/remoteEntry.js',
+            exposedModule: './TasksModule',
+          })
+            .then((m) => m.TasksModule)
+            .catch((err: any) => {
+              console.error('Error loading remote module:', err);
+            }),
+        canActivate: [AuthguardService],
+      }
+    ],
   },
   {
     path: '**',

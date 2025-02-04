@@ -45,11 +45,11 @@ export class LoginFormComponent {
       password: formValues.password!,
     };
 
-    console.log(loginData);
     if (!this.loginUserDataFormGroup.invalid) {
       this.userService.login(loginData).subscribe({
         next: (result: any) => {
           this.cookieService.set('Token', result['jwt']);
+          this.router.navigate(['/main']);
         },
         error: (errorResponse: HttpErrorResponse) => {
           if (errorResponse.error && errorResponse.error.errorMessage) {

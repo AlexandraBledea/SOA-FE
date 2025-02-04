@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-panel',
@@ -10,11 +9,14 @@ import {Router} from '@angular/router';
 })
 export class LoginPanelComponent {
 
-  constructor(private router: Router) {
-  }
+  showLoginForm = true;
 
   goToRegister() {
-    this.router.navigate(['/register']);
+    this.showLoginForm = false;
+  }
+
+  goToLogin() {
+    this.showLoginForm = true;
   }
 
 }

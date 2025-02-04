@@ -4,7 +4,6 @@ import {BirthDataValidator} from '../../../validators/birth-date-validator';
 import {UserService} from '../../../service/user.service';
 import {Router} from '@angular/router';
 import {RegisterUserDto} from '../../../data-types/RegisterUserDto';
-import {ErrorResponseDto} from '../../../data-types/ErrorResponseDto';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
