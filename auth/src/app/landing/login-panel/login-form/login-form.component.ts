@@ -49,6 +49,7 @@ export class LoginFormComponent {
       this.userService.login(loginData).subscribe({
         next: (result: any) => {
           this.cookieService.set('Token', result['jwt']);
+          this.cookieService.set('Username', result['username']);
           this.router.navigate(['/main']);
         },
         error: (errorResponse: HttpErrorResponse) => {

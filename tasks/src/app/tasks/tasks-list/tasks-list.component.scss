@@ -2,19 +2,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 2rem;
 }
 
 .table-wrapper {
   width: 80%;
+  overflow-y: auto;
+  max-height: 500px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
+  table-layout: fixed;
   font-size: 18px;
   text-align: left;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0;
+}
+
+/* Sticky Header */
+thead {
+  position: sticky;
+  top: 0;
+  background-color: #007BFF;
+  color: white;
+  z-index: 10;
 }
 
 th {
@@ -40,4 +55,100 @@ tr:hover {
 
 table{
   border-radius: 5px;
+}
+
+/* Status Colors */
+.status-in-progress {
+  color: #F58A07;
+  font-weight: bold;
+}
+
+.status-done {
+  color: #04A777;
+  font-weight: bold;
+}
+
+.status-to-do {
+  color: #5762D5;
+  font-weight: bold;
+}
+
+
+.edit-btn, .delete-btn, .view-btn, .create-btn{
+  padding: 4px;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-right: 5px;
+}
+
+
+.edit-btn:hover, .delete-btn:hover, .view-btn:hover, .create-btn:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.create-btn {
+  background-color: #885fd5;
+  padding: 10px;
+}
+
+.create-btn:hover {
+  background-color: #5c3a9c;
+}
+
+.view-btn {
+  background-color: #00A7E1;
+}
+
+.view-btn:hover {
+  background-color: #01779f;
+}
+
+.edit-btn {
+  background-color: #28a745;
+}
+
+.edit-btn:hover {
+  background-color: #218838;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #931621;
+}
+
+
+
+.no-tasks {
+  text-align: center;
+  font-size: 18px;
+  color: rgba(21, 18, 18, 0.94);
+  margin-top: 20px;
+}
+
+
+.table-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

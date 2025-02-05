@@ -12,28 +12,27 @@
       </tr>
       </thead>
       <tbody>
-      <!-- Display tasks dynamically -->
       <tr *ngFor="let task of tasks">
         <td>{{ task.title }}</td>
         <td>{{ task.createdBy }}</td>
         <td>{{ task.assignedTo }}</td>
         <td>{{ task.dueDate | date: 'mediumDate' }}</td>
         <td>
-            <span [ngClass]="{'status-pending': task.status === 'Pending',
-                              'status-completed': task.status === 'Completed',
-                              'status-in-progress': task.status === 'In Progress'}">
-              {{ task.status }}
+            <span [ngClass]="{'status-in-progress': task.status === 'IN_PROGRESS',
+                              'status-done': task.status === 'DONE',
+                              'status-to-do': task.status === 'TO_DO'}">
+              {{ getStatusValue(task.status) }}
             </span>
         </td>
         <td>
-          <button class="edit-btn">✏️ Edit</button>
-          <button class="delete-btn">🗑️ Delete</button>
+          <button class="view-btn">View</button>
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
         </td>
       </tr>
       </tbody>
     </table>
-
-    <!-- Show message if no tasks exist -->
     <p *ngIf="tasks.length === 0" class="no-tasks">No tasks available.</p>
   </div>
+  <button class="create-btn">Create task</button>
 </section>

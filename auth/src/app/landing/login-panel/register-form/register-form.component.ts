@@ -71,6 +71,7 @@ export class RegisterFormComponent {
 
     this.userService.register(registerData).subscribe({
       next: (result: any) => {
+        this.cookieService.set('Username', result['username']);
         this.cookieService.set('Token', result['jwt']);
         this.router.navigate(['/main']);
       },

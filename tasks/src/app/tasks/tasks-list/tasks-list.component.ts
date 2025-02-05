@@ -2,6 +2,13 @@ import {Component} from '@angular/core';
 import {TaskDto} from '../../data-types/TaskDto';
 import {TasksService} from '../../service/tasks.service';
 
+
+const status = {
+  TO_DO: "Todo",
+  IN_PROGRESS: "In progress",
+  DONE: "Done"
+}
+
 @Component({
   selector: 'app-tasks-list',
   standalone: false,
@@ -19,8 +26,13 @@ export class TasksListComponent {
 
   fetchAllTasks() {
     this.taskService.getAllTasks().subscribe(tasks => {
-        this.tasks = tasks;
+        this.tasks = [ ...tasks, ...tasks];
       }
     )
   }
+
+  getStatusValue(key: string) {
+    return status[key as keyof typeof status] || "Unknown Status";
+  }
+
 }
