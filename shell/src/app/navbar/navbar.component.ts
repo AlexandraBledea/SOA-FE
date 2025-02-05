@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {NavigationEnd, Router} from '@angular/router';
 
@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
 
   showTopNavBar = false;
 
-  constructor(private cookieService: CookieService, private router: Router) {
+  constructor(private cookieService: CookieService, private router: Router, private cdRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -44,8 +44,9 @@ export class NavbarComponent implements OnInit {
     console.log("Deleted token.....")
     this.cookieService.delete('Username');
     console.log("Deleted username.....")
+    this.cdRef.detectChanges();
     setTimeout(() => {
       window.location.href= '/login';
-    }, 100);
+    }, 500);
   }
 }
