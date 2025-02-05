@@ -1,1 +1,39 @@
-<p>tasks-list works!</p>
+<section class="tasks-section">
+  <div class="table-wrapper">
+    <table>
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Created by</th>
+        <th>Assigned to</th>
+        <th>Due date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- Display tasks dynamically -->
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.title }}</td>
+        <td>{{ task.createdBy }}</td>
+        <td>{{ task.assignedTo }}</td>
+        <td>{{ task.dueDate | date: 'mediumDate' }}</td>
+        <td>
+            <span [ngClass]="{'status-pending': task.status === 'Pending',
+                              'status-completed': task.status === 'Completed',
+                              'status-in-progress': task.status === 'In Progress'}">
+              {{ task.status }}
+            </span>
+        </td>
+        <td>
+          <button class="edit-btn">✏️ Edit</button>
+          <button class="delete-btn">🗑️ Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <!-- Show message if no tasks exist -->
+    <p *ngIf="tasks.length === 0" class="no-tasks">No tasks available.</p>
+  </div>
+</section>

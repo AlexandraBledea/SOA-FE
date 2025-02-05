@@ -18,6 +18,7 @@ export class AuthguardLoginService implements CanActivate {
     | boolean
     | UrlTree {
     const token = this.cookieService.get('Token');
+    console.log(token)
     if (!token) {
       return true;
     } else {

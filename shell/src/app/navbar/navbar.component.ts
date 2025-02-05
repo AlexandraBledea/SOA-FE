@@ -39,6 +39,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+    console.log("aici")
     this.cookieService.delete('Token');
     this.router.navigate(['/login']);
   }

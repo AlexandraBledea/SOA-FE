@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #dabb93;
+  background-color: #C6B9CD;
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -34,7 +34,7 @@
 .option, .navbar-link {
   display: block;
   padding: 15px 30px;
-  background-color: #6200ea;
+  background-color: #885fd5;
   color: white;
   text-align: center;
   font-size: 16px;
@@ -43,13 +43,15 @@
   transition: background-color 0.3s ease;
 }
 
-.option,.navbar-link:hover {
-  background-color: #3700b3;
+.option:hover ,.navbar-link:hover {
+  background-color: #5c3a9c;
   color: white;
+  cursor: pointer;
 }
 
-.option,.navbar-link:active {
-  background-color: #6200ea;
+.option:active,.navbar-link:active {
+  background-color: #5c3a9c;
 }
+
 
 

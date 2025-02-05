@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
 import {AuthguardService} from './authguards/authguard.service';
-import {HttpClientModule} from '@angular/common/http';
-import { MainComponent } from './main/main.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {MainComponent} from './main/main.component';
+import {NavbarComponent} from './navbar/navbar.component';
+import {AuthenticationInterceptor} from './service/authentication-service.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,15 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   providers: [
     AuthguardService,
-    { provide: JWT_OPTIONS, useValue: {} },  // Provide JWT_OPTIONS
+    {provide: JWT_OPTIONS, useValue: {}},  // Provide JWT_OPTIONS
     JwtHelperService,  // Provide JwtHelperService
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
