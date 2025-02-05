@@ -35,6 +35,18 @@ export class TasksListComponent {
     )
   }
 
+  delete(id: any) {
+    this.taskService.deleteTask(id).subscribe({
+      next: (response) => {
+        alert('Task deleted successfully!');
+        this.fetchAllTasks();
+      },
+        error: (err) => {
+        alert('Failed to delete task. Please try again.');
+      }
+    });
+  }
+
   getStatusValue(key: string) {
     return status[key as keyof typeof status] || "Unknown Status";
   }

@@ -12,6 +12,7 @@ export class TasksService {
   private getAll= this.baseUrl + '/all';
   private saveUrl = this.baseUrl + '/save';
   private updateUrl = this.baseUrl + '/update';
+  private deleteUrl = this.baseUrl + '/delete';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -29,6 +30,10 @@ export class TasksService {
 
   updateTask(task: any): Observable<any> {
     return this.httpClient.put(this.updateUrl, task);
+  }
+
+  deleteTask(id: any): Observable<any> {
+    return this.httpClient.delete(`${this.deleteUrl}/${id}`);
   }
 
 }

@@ -7,9 +7,10 @@ import { TaskEditComponent } from './task-edit/task-edit.component';
 import { TaskCreateComponent } from './task-create/task-create.component';
 import {TasksRoutingModule} from './tasks-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import { TaskAssignComponent } from './task-assign/task-assign.component';
 
 @NgModule({
-  declarations: [TasksListComponent],
+  declarations: [TasksListComponent, TaskAssignComponent],
   imports: [
     CommonModule,
     TasksRoutingModule,

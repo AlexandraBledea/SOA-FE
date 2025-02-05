@@ -27,7 +27,8 @@
         <td>
           <button class="view-btn" [routerLink]="['/main/tasks/view', task.id]">View</button>
           <button class="edit-btn" *ngIf="username === task.createdBy" [routerLink]="['/main/tasks/edit', task.id]">Edit</button>
-          <button class="delete-btn" *ngIf="username === task.createdBy">Delete</button>
+          <button class="delete-btn" *ngIf="username === task.createdBy" (click)="delete(task.id)">Delete</button>
+          <button class="delete-btn" *ngIf="username === task.createdBy" [routerLink]="['/main/tasks/assign', task.id]" (click)="delete(task.id)">Assign task</button>
         </td>
       </tr>
       </tbody>
