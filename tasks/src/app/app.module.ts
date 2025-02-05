@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {AuthenticationInterceptor} from './service/authentication-service.service';
 
 @NgModule({
   declarations: [
@@ -13,7 +11,6 @@ import {AuthenticationInterceptor} from './service/authentication-service.servic
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })
