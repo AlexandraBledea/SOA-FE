@@ -74,7 +74,7 @@ table{
 }
 
 
-.edit-btn, .delete-btn, .view-btn, .create-btn{
+.edit-btn, .delete-btn, .view-btn, .create-btn, .assign-btn{
   padding: 4px;
   color: white;
   text-align: center;
@@ -87,9 +87,17 @@ table{
 }
 
 
-.edit-btn:hover, .delete-btn:hover, .view-btn:hover, .create-btn:hover {
+.edit-btn:hover, .delete-btn:hover, .view-btn:hover, .create-btn:hover, .assign-btn:hover {
   color: white;
   cursor: pointer;
+}
+
+.assign-btn {
+  background-color: #F487B6;
+}
+
+.assign-btn:hover {
+  background-color: #ea3c85;
 }
 
 .create-btn {

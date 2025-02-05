@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TasksService } from '../../service/tasks.service';
 
 @Component({
   selector: 'app-task-view',
   templateUrl: './task-view.component.html',
-  imports: [
-    ReactiveFormsModule
-  ],
-  styleUrls: ['./task-view.component.scss']
+  styleUrls: ['./task-view.component.scss'],
+  standalone: false
+
 })
 export class TaskViewComponent implements OnInit {
   taskForm!: FormGroup;

@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { TasksService } from '../../service/tasks.service';
 import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-task-create',
   templateUrl: './task-create.component.html',
-  imports: [
-    ReactiveFormsModule
-  ],
-  styleUrls: ['./task-create.component.scss']
+  styleUrls: ['./task-create.component.scss'],
+  standalone: false
 })
 export class TaskCreateComponent implements OnInit {
   taskForm!: FormGroup;

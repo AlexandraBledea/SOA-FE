@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TasksService } from '../../service/tasks.service';
 
 @Component({
   selector: 'app-task-edit',
   templateUrl: './task-edit.component.html',
-  imports: [
-    ReactiveFormsModule
-  ],
-  styleUrls: ['./task-edit.component.scss']
+  styleUrls: ['./task-edit.component.scss'],
+  standalone: false
 })
 export class TaskEditComponent implements OnInit {
   taskForm!: FormGroup;
