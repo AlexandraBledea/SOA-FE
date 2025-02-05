@@ -5,14 +5,18 @@ import {RouterModule} from '@angular/router';
 import { TaskViewComponent } from './task-view/task-view.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { TaskCreateComponent } from './task-create/task-create.component';
+import {TasksRoutingModule} from './tasks-routing.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [TasksListComponent, TaskViewComponent, TaskEditComponent, TaskCreateComponent],
+  declarations: [TasksListComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      { path: '', component: TasksListComponent },
-    ]),
+    TasksRoutingModule,
+    TaskCreateComponent,
+    ReactiveFormsModule,
+    TaskEditComponent,
+    TaskViewComponent
   ],
   providers: [
   ],

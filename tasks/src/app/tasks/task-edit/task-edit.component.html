@@ -1,1 +1,42 @@
-<p>task-edit works!</p>
+<section class="task-edit-section">
+  <h2>Edit Task</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <!-- Title -->
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+        placeholder="Enter task title"
+        class="form-control"
+      />
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        placeholder="Enter task description"
+        class="form-control"
+      ></textarea>
+    </div>
+
+    <!-- Due Date -->
+    <div class="form-group">
+      <label for="dueDate">Due Date</label>
+      <input
+        id="dueDate"
+        type="date"
+        [min]="minDate"
+        formControlName="dueDate"
+        class="form-control"
+      />
+    </div>
+
+    <!-- Save Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Save Changes</button>
+  </form>
+</section>

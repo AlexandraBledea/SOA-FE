@@ -25,14 +25,14 @@
             </span>
         </td>
         <td>
-          <button class="view-btn">View</button>
-          <button class="edit-btn">Edit</button>
-          <button class="delete-btn">Delete</button>
+          <button class="view-btn" [routerLink]="['/main/tasks/view', task.id]">View</button>
+          <button class="edit-btn" *ngIf="username === task.createdBy" [routerLink]="['/main/tasks/edit', task.id]">Edit</button>
+          <button class="delete-btn" *ngIf="username === task.createdBy">Delete</button>
         </td>
       </tr>
       </tbody>
     </table>
     <p *ngIf="tasks.length === 0" class="no-tasks">No tasks available.</p>
   </div>
-  <button class="create-btn">Create task</button>
+  <button class="create-btn" (click)="goToCreateTask()">Create task</button>
 </section>

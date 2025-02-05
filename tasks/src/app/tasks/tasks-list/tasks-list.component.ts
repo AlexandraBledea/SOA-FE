@@ -1,10 +1,12 @@
 import {Component} from '@angular/core';
 import {TaskDto} from '../../data-types/TaskDto';
 import {TasksService} from '../../service/tasks.service';
+import {CookieService} from 'ngx-cookie-service';
+import {Router} from '@angular/router';
 
 
 const status = {
-  TO_DO: "Todo",
+  TO_DO: "Not started",
   IN_PROGRESS: "In progress",
   DONE: "Done"
 }
@@ -19,20 +21,26 @@ const status = {
 export class TasksListComponent {
 
   tasks: TaskDto[] = [];
+  username: string;
 
-  constructor(private taskService: TasksService) {
+  constructor(private taskService: TasksService, private cookieService: CookieService, private router: Router) {
     this.fetchAllTasks();
+    this.username = this.cookieService.get('Username');
   }
 
   fetchAllTasks() {
     this.taskService.getAllTasks().subscribe(tasks => {
-        this.tasks = [ ...tasks, ...tasks];
+        this.tasks = tasks;
       }
     )
   }
 
   getStatusValue(key: string) {
     return status[key as keyof typeof status] || "Unknown Status";
+  }
+
+  goToCreateTask() {
+    this.router.navigate(['/main/tasks/create']);
   }
 
 }

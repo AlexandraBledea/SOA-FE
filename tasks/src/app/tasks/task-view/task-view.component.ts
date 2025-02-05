@@ -1,12 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { TasksService } from '../../service/tasks.service';
 
 @Component({
   selector: 'app-task-view',
-  standalone: false,
-  
   templateUrl: './task-view.component.html',
-  styleUrl: './task-view.component.scss'
+  imports: [
+    ReactiveFormsModule
+  ],
+  styleUrls: ['./task-view.component.scss']
 })
-export class TaskViewComponent {
+export class TaskViewComponent implements OnInit {
+  taskForm!: FormGroup;
+  taskId!: string;
 
+  constructor(
+    private fb: FormBuilder,
+    private tasksService: TasksService,
+    private route: ActivatedRoute,
+  ) {}
+
+  ngOnInit(): void {
+    this.taskForm = this.fb.group({
+      title: [''],
+      description: [''],
+      dueDate: ['']
+    });
+
+    this.route.paramMap.subscribe(params => {
+      this.taskId = params.get('id') || '';
+      if (this.taskId) {
+        this.loadTaskDetails(this.taskId);
+      }
+    });
+  }
+
+  loadTaskDetails(id: string): void {
+    this.tasksService.getTaskById(id).subscribe(task => {
+      if (task) {
+        this.taskForm.patchValue({
+          title: task.title,
+          description: task.description,
+          dueDate: task.dueDate
+        });
+      }
+    });
+  }
 }

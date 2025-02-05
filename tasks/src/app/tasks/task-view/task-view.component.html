@@ -1,1 +1,38 @@
-<p>task-view works!</p>
+<section class="task-edit-section">
+  <form [formGroup]="taskForm">
+    <!-- Title -->
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        id="title"
+        type="text"
+        readonly
+        formControlName="title"
+        placeholder="Enter task title"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        readonly
+        formControlName="description"
+        placeholder="Enter task description"
+        class="form-control"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="dueDate">Due Date</label>
+      <input
+        id="dueDate"
+        type="date"
+        readonly
+        formControlName="dueDate"
+        class="form-control"
+      />
+    </div>
+  </form>
+</section>

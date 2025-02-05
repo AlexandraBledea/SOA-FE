@@ -39,8 +39,13 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    this.cookieService.delete('Token', '/');
-    this.cookieService.delete('Username', '/');
-    this.router.navigate(['/login']);
+    console.log("Logging out.....")
+    this.cookieService.delete('Token');
+    console.log("Deleted token.....")
+    this.cookieService.delete('Username');
+    console.log("Deleted username.....")
+    setTimeout(() => {
+      window.location.href= '/login';
+    }, 100);
   }
 }
