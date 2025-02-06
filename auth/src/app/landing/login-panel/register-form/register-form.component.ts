@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {BirthDataValidator} from '../../../validators/birth-date-validator';
-import {UserService} from '../../../service/user.service';
-import {Router} from '@angular/router';
-import {RegisterUserDto} from '../../../data-types/RegisterUserDto';
-import {HttpErrorResponse} from '@angular/common/http';
-import {CookieService} from 'ngx-cookie-service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BirthDataValidator } from '../../../validators/birth-date-validator';
+import { UserService } from '../../../service/user.service';
+import { Router } from '@angular/router';
+import { RegisterUserDto } from '../../../data-types/RegisterUserDto';
+import { HttpErrorResponse } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-register-form',

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {TaskDto} from '../data-types/TaskDto';
-import {AssignUserDto} from '../data-types/AssignUserDto';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { TaskDto } from '../data-types/TaskDto';
+import { AssignUserDto } from '../data-types/AssignUserDto';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,10 @@ export class TasksService {
 
   private baseUrl = 'http://localhost:4000/task';
   private getAll= this.baseUrl + '/all';
+  private getAllAssignedTo= this.baseUrl + '/all-assigned-to';
   private saveUrl = this.baseUrl + '/save';
   private updateUrl = this.baseUrl + '/update';
+  private updateStatusUrl = this.baseUrl + '/update-status';
   private deleteUrl = this.baseUrl + '/delete';
   private assignUrl = this.baseUrl + '/assign';
 
@@ -20,6 +22,14 @@ export class TasksService {
 
   public getAllTasks(): Observable<any> {
     return this.httpClient.get(this.getAll);
+  }
+
+  public getAllTasksAssignedTo(user: AssignUserDto): Observable<any> {
+    return this.httpClient.post(this.getAllAssignedTo, user)
+  }
+
+  public updateTaskStatus(task: TaskDto) {
+    return this.httpClient.put(this.updateStatusUrl, task);
   }
 
   public saveTask(saveData: TaskDto): Observable<any> {

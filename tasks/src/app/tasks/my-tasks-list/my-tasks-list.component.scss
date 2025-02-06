@@ -1,0 +1,152 @@
+.tasks-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.table-wrapper {
+  width: 80%;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 18px;
+  text-align: left;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0;
+}
+
+/* Sticky Header */
+//thead {
+//  position: sticky;
+//  top: 0;
+//  background-color: #007BFF;
+//  color: white;
+//  z-index: 1;
+//}
+
+th {
+  background-color: #7E846B;
+  color: white;
+  padding: 12px;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr {
+  background-color: #ffffff;
+}
+
+tr:hover {
+  background-color: #e4e1e4;
+  transition: 0.3s ease-in-out;
+}
+
+table{
+  border-radius: 5px;
+}
+
+/* Status Colors */
+.status-in-progress {
+  color: #F58A07;
+  font-weight: bold;
+}
+
+.status-done {
+  color: #04A777;
+  font-weight: bold;
+}
+
+.status-to-do {
+  color: #5762D5;
+  font-weight: bold;
+}
+
+
+.done-btn, .view-btn, .start-btn, .todo-btn{
+  padding: 4px;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-right: 5px;
+}
+
+
+.done-btn:hover, .view-btn:hover, .start-btn:hover, .todo-btn:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.todo-btn {
+  background-color: #F487B6;
+}
+
+.todo-btn:hover {
+  background-color: #ea3c85;
+}
+
+.start-btn {
+  background-color: #885fd5;
+}
+
+.start-btn:hover {
+  background-color: #5c3a9c;
+}
+
+.view-btn {
+  background-color: #00A7E1;
+}
+
+.view-btn:hover {
+  background-color: #01779f;
+}
+
+.done-btn {
+  background-color: #28a745;
+}
+
+.done-btn:hover {
+  background-color: #218838;
+}
+
+
+.no-tasks {
+  text-align: center;
+  font-size: 18px;
+  color: rgba(21, 18, 18, 0.94);
+  margin-top: 20px;
+}
+
+
+.table-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

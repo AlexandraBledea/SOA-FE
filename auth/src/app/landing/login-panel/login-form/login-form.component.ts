@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserService} from '../../../service/user.service';
-import {Router} from '@angular/router';
-import {CookieService} from 'ngx-cookie-service';
-import {AuthenticationDto} from '../../../data-types/AuthenticationDto';
-import {HttpErrorResponse} from '@angular/common/http';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../../service/user.service';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthenticationDto } from '../../../data-types/AuthenticationDto';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({

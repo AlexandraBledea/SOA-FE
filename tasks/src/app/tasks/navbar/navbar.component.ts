@@ -1,41 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
-import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  imports: [
-    NgIf,
-    NgForOf
-  ],
-  styleUrls: ['./navbar.component.scss']
+  styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent implements OnInit {
-  notifications: any[] = [];
-  showNotifications = false;
+export class NavbarComponent  {
 
-  constructor(
-    private cookieService: CookieService,
-    private router: Router
-  ) {}
 
-  ngOnInit(): void {
-    this.loadNotifications();
+  constructor(private router: Router) {
   }
 
-  loadNotifications(): void {
-    this.notifications = ['aici', 'aici']
+  goToTasks() {
+    this.router.navigate(['/main/tasks']);
   }
 
-  toggleNotifications(): void {
-    this.showNotifications = !this.showNotifications;
-  }
-
-  logout(): void {
-    this.cookieService.delete('Token');
-    this.cookieService.delete('Username');
-    this.router.navigate(['/login']);
+  goToMyTasks() {
+    this.router.navigate(['/main/tasks/my-tasks']);
   }
 }

@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TasksService } from '../../service/tasks.service';
 import { UsersService } from '../../service/users.service';
-import { ActivatedRoute } from '@angular/router';
-import {AssignUserDto} from '../../data-types/AssignUserDto';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AssignUserDto } from '../../data-types/AssignUserDto';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-task-assign',
@@ -20,7 +21,9 @@ export class TaskAssignComponent implements OnInit {
     private fb: FormBuilder,
     private tasksService: TasksService,
     private usersService: UsersService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +52,7 @@ export class TaskAssignComponent implements OnInit {
       this.tasksService.assignTask(this.taskId, assignUser).subscribe({
         next: () => {
           alert('Task assigned successfully!');
+          this.router.navigate(['/main/tasks']);
         },
         error: (err) => {
           console.error('Error assigning task:', err);
@@ -56,5 +60,10 @@ export class TaskAssignComponent implements OnInit {
         }
       });
     }
+  }
+
+
+  goBack(): void {
+    this.location.back(); // Navigates to the previous page
   }
 }

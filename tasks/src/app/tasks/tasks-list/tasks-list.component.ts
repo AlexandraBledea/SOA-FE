@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
-import {TaskDto} from '../../data-types/TaskDto';
-import {TasksService} from '../../service/tasks.service';
-import {CookieService} from 'ngx-cookie-service';
-import {Router} from '@angular/router';
+import { Component } from '@angular/core';
+import { TaskDto } from '../../data-types/TaskDto';
+import { TasksService } from '../../service/tasks.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 
 const status = {

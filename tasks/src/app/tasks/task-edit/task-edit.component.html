@@ -1,7 +1,6 @@
 <section class="task-edit-section">
   <h2>Edit Task</h2>
   <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-    <!-- Title -->
     <div class="form-group">
       <label for="title">Title</label>
       <input
@@ -13,7 +12,6 @@
       />
     </div>
 
-    <!-- Description -->
     <div class="form-group">
       <label for="description">Description</label>
       <textarea
@@ -24,7 +22,6 @@
       ></textarea>
     </div>
 
-    <!-- Due Date -->
     <div class="form-group">
       <label for="dueDate">Due Date</label>
       <input
@@ -36,7 +33,8 @@
       />
     </div>
 
-    <!-- Save Button -->
     <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Save Changes</button>
   </form>
+
+  <button (click)="goBack()" class="btn btn-secondary">Go Back</button>
 </section>

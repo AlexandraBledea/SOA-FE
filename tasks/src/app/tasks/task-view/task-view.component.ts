@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TasksService } from '../../service/tasks.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-task-view',
@@ -18,6 +20,7 @@ export class TaskViewComponent implements OnInit {
     private fb: FormBuilder,
     private tasksService: TasksService,
     private route: ActivatedRoute,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -45,5 +48,9 @@ export class TaskViewComponent implements OnInit {
         });
       }
     });
+  }
+
+  goBack(): void {
+    this.location.back(); // Navigates to the previous page
   }
 }

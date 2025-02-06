@@ -6,7 +6,6 @@
       <tr>
         <th>Title</th>
         <th>Created by</th>
-        <th>Assigned to</th>
         <th>Due date</th>
         <th>Status</th>
         <th>Actions</th>
@@ -16,7 +15,6 @@
       <tr *ngFor="let task of tasks">
         <td>{{ task.title }}</td>
         <td>{{ task.createdBy }}</td>
-        <td>{{ task.assignedTo }}</td>
         <td>{{ task.dueDate | date: 'mediumDate' }}</td>
         <td>
             <span [ngClass]="{'status-in-progress': task.status === 'IN_PROGRESS',
@@ -27,14 +25,13 @@
         </td>
         <td>
           <button class="view-btn" [routerLink]="['/main/tasks/view', task.id]">View</button>
-          <button class="edit-btn" *ngIf="username === task.createdBy" [routerLink]="['/main/tasks/edit', task.id]">Edit</button>
-          <button class="delete-btn" *ngIf="username === task.createdBy" (click)="delete(task.id)">Delete</button>
-          <button class="assign-btn" *ngIf="username === task.createdBy && task.assignedTo === 'Unassigned'" [routerLink]="['/main/tasks/assign', task.id]">Assign task</button>
+          <button class="start-btn" *ngIf="task.status === 'TO_DO'" (click)="startTask(task)">Start</button>
+          <button class="done-btn" *ngIf="task.status === 'IN_PROGRESS'" (click)="markTaskAsDone(task)">Done</button>
+          <button class="todo-btn" *ngIf="task.status === 'IN_PROGRESS' || task.status === 'DONE'" (click)="moveTaskInTODO(task)">TODO</button>
         </td>
       </tr>
       </tbody>
     </table>
     <p *ngIf="tasks.length === 0" class="no-tasks">No tasks available.</p>
   </div>
-  <button class="create-btn" (click)="goToCreateTask()">Create task</button>
 </section>

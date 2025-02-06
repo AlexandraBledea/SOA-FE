@@ -39,24 +39,42 @@ textarea {
   resize: vertical;
 }
 
-button {
+.btn {
   display: block;
   width: 100%;
   padding: 12px;
   font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
   background-color: #885fd5;
   color: white;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
-button:hover {
+.btn-primary:hover {
   background-color: #5c3a9c;
   transition: 0.3s ease-in-out;
 }
 
-button:disabled {
+.btn-primary:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+.btn-secondary {
+  margin-top: 10px;
+  background-color: #f9f9f9;
+  color: #333;
+  border: 2px solid #ccc;
+}
+
+.btn-secondary:hover {
+  background-color: #e6e6e6;
+  border-color: #bbb;
+  color: #000;
+  transition: 0.3s ease-in-out;
 }

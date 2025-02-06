@@ -1,6 +1,6 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {CookieService} from 'ngx-cookie-service';
-import {NavigationEnd, Router} from '@angular/router';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',

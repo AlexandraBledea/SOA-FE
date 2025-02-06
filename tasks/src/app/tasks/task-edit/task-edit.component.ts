@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TasksService } from '../../service/tasks.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-task-edit',
@@ -18,7 +19,8 @@ export class TaskEditComponent implements OnInit {
     private fb: FormBuilder,
     private tasksService: TasksService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -68,5 +70,9 @@ export class TaskEditComponent implements OnInit {
         }
       });
     }
+  }
+
+  goBack(): void {
+    this.location.back(); // Navigates to the previous page
   }
 }

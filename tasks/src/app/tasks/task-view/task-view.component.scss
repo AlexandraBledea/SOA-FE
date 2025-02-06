@@ -61,3 +61,24 @@ button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.go-back-btn {
+  display: block;
+  width: 150px;
+  margin: 20px auto 0;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  color: #333;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.go-back-btn:hover {
+  background-color: #e6e6e6;
+  border-color: #bbb;
+  color: #000;
+  transition: 0.3s ease-in-out;
+}

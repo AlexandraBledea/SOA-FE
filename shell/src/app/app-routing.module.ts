@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/module-federation';
-import {MainComponent} from './main/main.component';
-import {AuthguardService} from './authguards/authguard.service';
-import {AuthguardLoginService} from './authguards/authguard-login.service';
+import { MainComponent } from './main/main.component';
+import { AuthguardService } from './authguards/authguard.service';
+import { AuthguardLoginService } from './authguards/authguard-login.service';
 
 const routes: Routes = [
   {
