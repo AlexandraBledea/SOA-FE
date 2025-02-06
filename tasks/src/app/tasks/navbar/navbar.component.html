@@ -1,4 +1,19 @@
 <nav class="navbar">
+  <div class="notifications-container">
+    <button class="notification-icon" (click)="toggleNotifications()">
+      🔔
+      <span *ngIf="notifications.length > 0" class="notification-badge">{{ notifications.length }}</span>
+    </button>
+    <div *ngIf="showNotifications" class="notification-dropdown">
+      <h3>Notifications</h3>
+      <ul>
+        <li *ngFor="let notification of notifications">
+          {{ notification.message }}
+        </li>
+      </ul>
+      <p *ngIf="notifications.length === 0">No new notifications</p>
+    </div>
+  </div>
   <ul class="navbar-list">
     <li class="navbar-item">
       <a class="navbar-link" (click)="goToTasks()">All tasks</a>

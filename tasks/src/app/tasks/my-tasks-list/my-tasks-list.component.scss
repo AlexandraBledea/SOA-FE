@@ -24,13 +24,13 @@ table {
 }
 
 /* Sticky Header */
-//thead {
-//  position: sticky;
-//  top: 0;
-//  background-color: #007BFF;
-//  color: white;
-//  z-index: 1;
-//}
+thead {
+  position: sticky;
+  top: 0;
+  background-color: #007BFF;
+  color: white;
+  z-index: 1;
+}
 
 th {
   background-color: #7E846B;
