@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {TaskDto} from '../data-types/TaskDto';
+import {AssignUserDto} from '../data-types/AssignUserDto';
 
 @Injectable({
   providedIn: 'root'
@@ -37,8 +38,8 @@ export class TasksService {
     return this.httpClient.delete(`${this.deleteUrl}/${id}`);
   }
 
-  assignTask(taskId: string, userId: string): Observable<any> {
-    return this.httpClient.post(`${this.assignUrl}/${taskId}`, { userId });
+  assignTask(taskId: string, user: AssignUserDto): Observable<any> {
+    return this.httpClient.post(`${this.assignUrl}/${taskId}`, user);
   }
 
 

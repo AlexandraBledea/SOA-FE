@@ -1,0 +1,30 @@
+<nav class="navbar">
+  <!-- Left Side: Logo & Links -->
+  <div class="navbar-left">
+    <a routerLink="/main" class="logo">MyApp</a>
+    <a routerLink="/main/tasks">Tasks</a>
+    <a routerLink="/main/profile">Profile</a>
+  </div>
+
+  <!-- Right Side: Notifications & Logout -->
+  <div class="navbar-right">
+    <!-- 🔔 Notifications Bell -->
+    <div class="notification-container">
+      <button class="notification-icon" (click)="toggleNotifications()">
+        🔔
+        <span *ngIf="notifications.length > 0" class="notification-badge">{{ notifications.length }}</span>
+      </button>
+      <div *ngIf="showNotifications" class="notification-dropdown">
+        <p *ngIf="notifications.length === 0">No new notifications</p>
+        <ul *ngIf="notifications.length > 0">
+          <li *ngFor="let notification of notifications">
+            {{ notification }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Logout Button -->
+    <button (click)="logout()" class="logout-btn">Logout</button>
+  </div>
+</nav>

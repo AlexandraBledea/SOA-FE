@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TasksService } from '../../service/tasks.service';
 import { UsersService } from '../../service/users.service';
 import { ActivatedRoute } from '@angular/router';
+import {AssignUserDto} from '../../data-types/AssignUserDto';
 
 @Component({
   selector: 'app-task-assign',
@@ -42,8 +43,10 @@ export class TaskAssignComponent implements OnInit {
 
   assignTask(): void {
     if (this.assignForm.valid) {
-      const userId = this.assignForm.value.selectedUser;
-      this.tasksService.assignTask(this.taskId, userId).subscribe({
+      const user = this.assignForm.value.selectedUser;
+      const assignUser: AssignUserDto = {username: user};
+      console.log(assignUser)
+      this.tasksService.assignTask(this.taskId, assignUser).subscribe({
         next: () => {
           alert('Task assigned successfully!');
         },

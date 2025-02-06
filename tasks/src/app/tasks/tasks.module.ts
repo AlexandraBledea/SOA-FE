@@ -7,6 +7,7 @@ import { TaskCreateComponent } from './task-create/task-create.component';
 import {TasksRoutingModule} from './tasks-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import { TaskAssignComponent } from './task-assign/task-assign.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [TasksListComponent, TaskAssignComponent, TaskViewComponent, TaskEditComponent, TaskCreateComponent],
@@ -14,6 +15,7 @@ import { TaskAssignComponent } from './task-assign/task-assign.component';
     CommonModule,
     TasksRoutingModule,
     ReactiveFormsModule,
+    NavbarComponent,
   ],
   providers: [
   ],
