@@ -17,6 +17,8 @@ export class TasksService {
   private updateStatusUrl = this.baseUrl + '/update-status';
   private deleteUrl = this.baseUrl + '/delete';
   private assignUrl = this.baseUrl + '/assign';
+  private deadlineReminderUrl = this.baseUrl + '/get-deadline-reminder';
+
 
   constructor(private httpClient: HttpClient) {}
 
@@ -52,5 +54,8 @@ export class TasksService {
     return this.httpClient.post(`${this.assignUrl}/${taskId}`, user);
   }
 
+  getDeadlineReminters() {
+    return this.httpClient.get(this.deadlineReminderUrl);
+  }
 
 }

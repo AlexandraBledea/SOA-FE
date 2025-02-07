@@ -55,4 +55,14 @@ export class TasksListComponent {
     this.router.navigate(['/main/tasks/create']);
   }
 
+  getDeadlineReminder() {
+    this.taskService.getDeadlineReminters().subscribe({
+      next: (response) => {
+        alert('Deadline reminder sent successfully!');
+      }, error: (err) => {
+        alert('Failed to get deadline reminder. Please try again.');
+      }
+    })
+  }
+
 }

@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "@angular-architects/module-federation": "^19.0.1"
+    "@angular-architects/module-federation": "^19.0.1",
+    "@stomp/stompjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/stompjs": "^2.3.9"
   }
 }
