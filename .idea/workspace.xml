@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5401033-2926-4c1d-afb6-cf6724c63139" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/src/app/service/tasks.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/src/app/service/tasks.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/src/app/tasks/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/src/app/tasks/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/src/app/tasks/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/src/app/tasks/navbar/navbar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/src/app/tasks/tasks-list/tasks-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/src/app/tasks/tasks-list/tasks-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/src/app/tasks/tasks-list/tasks-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/src/app/tasks/tasks-list/tasks-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +64,7 @@
       <workItem from="1738799605826" duration="26000" />
       <workItem from="1738801730869" duration="2566000" />
       <workItem from="1738833194314" duration="1021000" />
-      <workItem from="1738936870668" duration="182000" />
+      <workItem from="1738936870668" duration="821000" />
     </task>
     <servers />
   </component>
